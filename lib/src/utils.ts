@@ -8,11 +8,11 @@ export const toPromise = <T = any> (
 ) => {
   return new Promise((resolve, reject) => {
     const safeArgs = args || [];
-    fn.bind(binding)(...args, (err: Error | null, ...results: T[]) => {
+    fn.bind(binding)(...safeArgs, (err: Error | null, ...results: T[]) => {
       if (err) {
         reject(err);
       } else {
-        resolve(results.length > 1 ? (results as any) : results[0]);
+        resolve(results);
       }
     });
   });
