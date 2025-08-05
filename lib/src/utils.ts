@@ -1,7 +1,7 @@
 /**
  * Wraps the passed function into a promise
  */
-export const toPromise = (
+export const toPromise = <T = any> (
   binding: any,
   fn: (...args: any[]) => void,
   args?: any[]
@@ -25,5 +25,5 @@ export const toPromise = (
 export const wait = (time: number): Promise<void> =>
   new Promise((resolve) => setTimeout(resolve, time));
 
-export const combineFlags = (flags: number[]) =>
+export const combineFlags = (flags: number[]) : number =>
   flags.reduce((memo, flag) => memo | flag, 0);
