@@ -12,7 +12,7 @@ export const toPromise = <T = any> (
       if (err) {
         reject(err);
       } else {
-        resolve(results);
+        resolve(results.length > 1 ? results : results[0]);
       }
     });
   });
