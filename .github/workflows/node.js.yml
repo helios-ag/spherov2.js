@@ -42,7 +42,10 @@ jobs:
     - run: sudo apt-get install libusb-1.0-0-dev -y
     - run: yarn install --frozen-lockfile
     - run: yarn test --coverage
+    - name: Extract app1 coverage files
+      run: libCoverageFiles=$(find ${{ github.workspace }} -name "lcov.info" -type f -print | tr '\n' ',')
+          echo "LIB_COVERAGE_FILES=$libCoverageFiles" >> $GITHUB_ENV
     - uses: qltysh/qlty-action/coverage@v1
       with:
         token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
-        files: ${{github.workspace}}/coverage/lcov.info:lcov    
+        files: ${{ env.LIB_COVERAGE_FILES }} 
