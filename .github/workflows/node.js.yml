@@ -47,8 +47,8 @@ jobs:
       with:
         exclude: "node_modules|dist|.git|.husky"
         path: ${{github.workspace}}
-        depth: 2
+        depth: 3
     - uses: qltysh/qlty-action/coverage@v1
       with:
         token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
-        files: ${{github.workspace}}/coverage/lcov.info
+        files: ${{github.workspace}}/spherov2.js/lib/coverage/lcov.info
