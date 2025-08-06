@@ -41,7 +41,7 @@ jobs:
     - run: sudo apt-get install libudev-dev -y
     - run: sudo apt-get install libusb-1.0-0-dev -y
     - run: yarn install --frozen-lockfile
-    - run: yarn test
+    - run: yarn test --coverage
     - uses: qltysh/qlty-action/coverage@v1
       with:
         token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
