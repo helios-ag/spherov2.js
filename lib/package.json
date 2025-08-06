@@ -15,11 +15,11 @@
     "prepublishOnly": "echo 'Compiling...';rm -fR dist; tsc; echo 'DONE';",
     "debug": "ts-node --inspect-brk src/index.ts",
     "start": "ts-node src/index.ts",
-    "test": "jest --config jest.config.ts --coverage"
+    "test": "jest --config jest.config.ts"
   },
   "dependencies": {
     "@abandonware/noble": "^1.9.2-11",
-    "debug": "^4.3.1"
+    "debug": "^5"
   },
   "devDependencies": {
     "@types/debug": "^4.1.2",
@@ -28,7 +28,7 @@
     "node-inspect": "^2.0.0",
     "ts-jest": "^29.4.1",
     "ts-node": "^9.1.1",
-    "typescript": "^4.3",
+    "typescript": "^5",
     "watch": "^1.0.2"
   },
   "jest": {

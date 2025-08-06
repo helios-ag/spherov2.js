@@ -1,6 +1,7 @@
-import { JestConfigWithTsJest } from "ts-jest";
+// jest.config.ts
+import type { Config } from 'jest';
 
-const config: JestConfigWithTsJest = {
+const config: Config = {
   preset: 'ts-jest',
   testEnvironment: 'node', // or 'jsdom' if browser-related
   collectCoverage: true,
