@@ -46,7 +46,7 @@ jobs:
       uses: jaywcjlove/github-action-folder-tree@main
       with:
         exclude: "node_modules|dist|.git|.husky"
-        path: .
+        path: ${{github.workspace}}
         depth: 2
     - uses: qltysh/qlty-action/coverage@v1
       with:
