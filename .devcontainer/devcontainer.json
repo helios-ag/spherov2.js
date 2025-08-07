@@ -7,6 +7,9 @@
    // The name of the following service has to match one of the services in docker-compose.yml
    "service": "sphero-dev",
    "workspaceFolder": "/work",
+   "runArgs": [
+      "--network=sphero"
+   ],
    "customizations": {
       "vscode": {
          "extensions": [

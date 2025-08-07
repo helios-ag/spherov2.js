@@ -23,6 +23,7 @@ services:
       networks:
          sphero:
 
-
 networks:
-   sphero:
+   sphero: 
+      external: true
+      name: sphero
