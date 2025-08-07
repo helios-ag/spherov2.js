@@ -7,10 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [22.x]
@@ -26,29 +24,8 @@ jobs:
     - run: sudo apt-get install libudev-dev -y
     - run: sudo apt-get install libusb-1.0-0-dev -y
     - run: yarn install --frozen-lockfile
-    - run: yarn test
-  coverage:
-    needs: [ build ]
-    name: coverage
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-      with:
-        node-version: '22'
-    - run: sudo apt-get update
-    - run: sudo apt-get install build-essential git -y
-    - run: sudo apt-get install libudev-dev -y
-    - run: sudo apt-get install libusb-1.0-0-dev -y
-    - run: yarn install --frozen-lockfile
     - run: yarn test --coverage
-    - name: Print Folder Tree
-      uses: jaywcjlove/github-action-folder-tree@main
-      with:
-        exclude: "node_modules|dist|.git|.husky"
-        path: ${{github.workspace}}
-        depth: 3
     - uses: qltysh/qlty-action/coverage@v1
       with:
         token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
-        files: ${{github.workspace}}/spherov2.js/lib/coverage/lcov.info
+        files: /lib/coverage/lcov.info
