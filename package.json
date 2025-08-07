@@ -16,7 +16,6 @@
     "precommit-msg": "echo 'Pre-commit checks...' && exit 0",
     "prettier": "lint-staged",
     "prettier-format": "prettier --config .prettierrc '**/*.ts' --write",
-    "add-all": "git add -A",
     "docs": "rm -fR docs; typedoc --excludeExternals --excludeProtected --excludePrivate --exclude './lib/src/**/*.ts' --theme minimal --readme none --out docs --mode modules ."
   },
   "pre-commit": [

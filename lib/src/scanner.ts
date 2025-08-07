@@ -49,7 +49,8 @@ export const findToys = async (toysType: IToyAdvertisement[]) => {
   noble.on('discover', discoverBinded);
   scannerDebug('findToys-nobleStartScanning');
   await toPromise(noble, noble.startScanning, [
-    Object.keys(ServicesUUID).map((key) => ServicesUUID[key]),
+    Object.keys(ServicesUUID).map(
+  (key) => ServicesUUID[key as keyof typeof ServicesUUID]),
     false,
   ]); // any service UUID, no duplicates
   scannerDebug('findToys-wait5seconds');

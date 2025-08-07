@@ -1,0 +1,32 @@
+// See https://aka.ms/vscode-remote/devcontainer.json for format details.
+{
+   "name": "Sphero v2",
+   "dockerComposeFile": [
+      "docker-compose.yml"
+   ],
+   // The name of the following service has to match one of the services in docker-compose.yml
+   "service": "sphero-dev",
+   "workspaceFolder": "/work",
+   "runArgs": [
+      "--network=sphero"
+   ],
+   "customizations": {
+      "vscode": {
+         "extensions": [
+            "dbaeumer.vscode-eslint",
+            "editorconfig.editorconfig",
+            "firsttris.vscode-jest-runner",
+            // "github.copilot",
+            "github.copilot-chat",
+            "github.copilot-nightly",
+            "mhutchie.git-graph",
+            // "ms-azuretools.vscode-docker",
+            "ms-vsliveshare.vsliveshare",
+            "rtbenfield.vscode-jest-test-adapter",
+            "qcz.restart-ts-server-button"
+         ]
+      }
+   },
+   "shutdownAction": "stopCompose",
+   "remoteUser": "node"
+}

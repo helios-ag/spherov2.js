@@ -11,15 +11,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 12
       - run: sudo apt-get update
       - run: sudo apt-get install build-essential git -y
       - run: sudo apt-get install libudev-dev -y
       - run: sudo apt-get install libusb-1.0-0-dev -y
-      - run: sudo apt-get install gcc-4.8 g++-4.8 -y
       - run: yarn install --frozen-lockfile
       - run: yarn test
 
@@ -27,16 +26,15 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 12
+          node-version: 22
           registry-url: https://registry.npmjs.org/
       - run: sudo apt-get update
       - run: sudo apt-get install build-essential git -y
       - run: sudo apt-get install libudev-dev -y
       - run: sudo apt-get install libusb-1.0-0-dev -y
-      - run: sudo apt-get install gcc-4.8 g++-4.8 -y
       - run: yarn install --frozen-lockfile
       - run: npm run release -- --ci
         env:

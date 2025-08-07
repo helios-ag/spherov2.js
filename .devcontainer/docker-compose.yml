@@ -1,0 +1,29 @@
+
+name: 'sphero'
+
+services:
+   # change the service name, the container name and the hostname for each dev container that connects
+   # to the same virtual network. [Manfred, 29jul2022]
+   sphero-dev:
+      image: sphero-dev:0.1
+      build: .
+      container_name: sphero-dev
+      hostname: sphero-dev.local
+      working_dir: /work
+      ports:
+         - "5600:5600" # By default express.js uses port 3000
+         # Using double quotes for port mapping to avoid YAML reading it as a number with a different base
+         # e.g. "3333:22" would result in port numbers greater than 130000 which are clearly invalid.
+         # Without double quotes YAML interprets it as a number based on 22. [Manfred, 24aug2022]
+      volumes:
+         - ..:/work
+      environment:
+         - PORT=5600
+      command: bash -c "/work/.devcontainer/init.sh && sleep infinity"
+      networks:
+         sphero:
+
+networks:
+   sphero: 
+      external: true
+      name: sphero

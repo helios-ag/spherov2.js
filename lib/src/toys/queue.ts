@@ -1,6 +1,6 @@
 export interface ICommandQueueItem<P> {
   payload: P;
-  timeout?: NodeJS.Timer;
+  timeout?: ReturnType<typeof setTimeout>;
   success: (payload: P) => unknown;
   reject: (error: string) => unknown;
 }
